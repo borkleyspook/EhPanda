@@ -32,11 +32,11 @@
       ],
       "versions": [
         {
-          "version": "2.7.4",
-          "date": "2023-11-02T14:11:50",
-          "localizedDescription": "1. fix: Previews parsing.",
-          "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/v2.7.4/EhPanda.ipa",
-          "size": 6685295,
+          "version": "2.7.5",
+          "date": "2024-04-29T04:54:06",
+          "localizedDescription": "Sorry Nothing.",
+          "downloadURL": "https://github.com/borkleyspook/EhPanda/releases/download/v2.7.5/EhPanda.ipa",
+          "size": 6687130,
           "minOSVersion": "16.0"
         }
       ],
