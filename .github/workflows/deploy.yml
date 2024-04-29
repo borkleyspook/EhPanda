@@ -64,7 +64,6 @@ jobs:
           [[ ! -z "${{ github.event.pull_request.body }}" ]] || exit 1
           [[ ! -z "${{ github.event.pull_request.title }}" ]] || exit 1
           [[ ! -z "${{ steps.retrieve-data.outputs.size }}" ]] || exit 1
-          [[ ! -z "${{ steps.retrieve-data.outputs.notes }}" ]] || exit 1
           [[ ! -z "${{ steps.bump-version.outputs.version }}" ]] || exit 1
           [[ ! -z "${{ steps.retrieve-data.outputs.version_date }}" ]] || exit 1
       - name: Release to GitHub
@@ -84,7 +83,7 @@ jobs:
       - name: Update AltStore.json
         run: |
           echo "`jq '.apps[0].versions[0].size=${{ steps.retrieve-data.outputs.size }}' $ALTSTORE_JSON_PATH`" > $ALTSTORE_JSON_PATH
-          echo "`jq '.apps[0].versions[0].localizedDescription="${{ steps.retrieve-data.outputs.notes }}"' $ALTSTORE_JSON_PATH`" > $ALTSTORE_JSON_PATH
+          echo "`jq '.apps[0].versions[0].localizedDescription="Sorry Nothing."' $ALTSTORE_JSON_PATH`" > $ALTSTORE_JSON_PATH
           echo "`jq '.apps[0].versions[0].date="${{ steps.retrieve-data.outputs.version_date }}"' $ALTSTORE_JSON_PATH`" > $ALTSTORE_JSON_PATH
           echo "`jq '.apps[0].versions[0].version="${{ steps.bump-version.outputs.version }}"' $ALTSTORE_JSON_PATH`" > $ALTSTORE_JSON_PATH
           echo "`jq '.apps[0].versions[0].downloadURL="https://github.com/borkleyspook/EhPanda/releases/download/v${{ steps.bump-version.outputs.version }}/EhPanda.ipa"' $ALTSTORE_JSON_PATH`" > $ALTSTORE_JSON_PATH
